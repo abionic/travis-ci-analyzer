@@ -6,11 +6,19 @@ namespace :sys do
     end
 
     task :env do
-      puts %{env}
+      puts %x{env}
+    end
+
+    task :ifconfig do
+      puts %x{ifconfig --all}
     end
 
     task :ls_svc do
-      puts %{ls /etc/init.d/}
+      puts %x{ls /etc/init.d/}
+    end
+
+    task :ls_dpkg do
+      puts %x{dpkg --get-selections}
     end
   end
 
@@ -18,4 +26,4 @@ namespace :sys do
 end
 
 
-task :default => ['sys:os:uname', 'sys:os:env', 'sys:os:ls_svc']
+task :default => ['sys:os:uname', 'sys:os:env', 'sys:os:ifconfig', 'sys:os:ls_svc', 'sys:os:ls_dpkg']
