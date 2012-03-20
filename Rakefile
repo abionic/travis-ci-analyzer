@@ -5,6 +5,10 @@ namespace :sys do
       puts %x{uname -a}
     end
 
+    task :env do
+      puts %{env}
+    end
+
     task :ls_svc do
       puts %{ls /etc/init.d/}
     end
@@ -14,4 +18,4 @@ namespace :sys do
 end
 
 
-task :default => ['sys:uname', 'sys:ls_svc']
+task :default => ['sys:uname', 'sys:env', 'sys:ls_svc']
