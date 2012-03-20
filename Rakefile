@@ -18,4 +18,4 @@ namespace :sys do
 end
 
 
-task :default => ['sys:uname', 'sys:env', 'sys:ls_svc']
+task :default => ['sys:os:uname', 'sys:os:env', 'sys:os:ls_svc']
